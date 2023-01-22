@@ -1,12 +1,12 @@
 package org.paribas.fortis.repository;
 
 import org.paribas.fortis.model.Game;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
+@Repository
 public class GameRepository {
     private static Map<String, Game> games;
     private static GameRepository instance;
