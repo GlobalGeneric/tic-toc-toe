@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.paribas.fortis.controller.dto.ConnectRequest;
 import org.paribas.fortis.model.Game;
 import org.paribas.fortis.model.Player;
+import org.paribas.fortis.model.TicToe;
 import org.paribas.fortis.repository.GameRepository;
 import org.paribas.fortis.service.GameServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-//@WebMvcTest(controllers = GameController.class)
-//@ExtendWith(MockitoExtension.class)
 @WebMvcTest(GameController.class)
 public class GameControllerTest {
 
@@ -85,7 +84,7 @@ public class GameControllerTest {
 
         Player player1 = new Player("player-1");
         Player player2 = new Player("player-2");
-        Game createdGame = new Game("gameId", player1, player2, IN_PROGRESS, new int[3][3]);
+        Game createdGame = new Game("gameId", player1, player2, IN_PROGRESS, new int[3][3], TicToe.O);
         given(gameService.createGame(player1)).willReturn(createdGame);
         given(gameService.connectToGame(player2, "gameId")).willReturn(createdGame);
 
@@ -110,7 +109,7 @@ public class GameControllerTest {
 
         Player player1 = new Player("player-1");
         Player player2 = new Player("player-2");
-        Game createdGame = new Game("gameId", player1, null, IN_PROGRESS, new int[3][3]);
+        Game createdGame = new Game("gameId", player1, null, IN_PROGRESS, new int[3][3], TicToe.O);
         given(gameService.createGame(player1)).willReturn(createdGame);
 
         ConnectRequest connectRequest = new ConnectRequest();
