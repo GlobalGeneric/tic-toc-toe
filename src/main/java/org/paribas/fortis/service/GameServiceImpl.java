@@ -69,6 +69,18 @@ public class GameServiceImpl implements GameService {
         GameRepository.getInstance().setGame(game);
         return game;
     }
+
+    @Override
+    public Game connectToRandomGame(Player player2) throws NotFoundException {
+        Game game = GameRepository.getInstance().getGames().values().stream()
+                .filter(it -> it.getStatus().equals(NEW))
+                .findFirst().orElseThrow(() -> new NotFoundException("Game not found"));
+        game.setPlayer2(player2);
+        game.setStatus(IN_PROGRESS);
+        GameRepository.getInstance().setGame(game);
+        return game;
+    }
+
     private Boolean checkWinner(int[][] board, TicToe ticToe) {
         int[] boardArray = new int[9];
         int counterIndex = 0;

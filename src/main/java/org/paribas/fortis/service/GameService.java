@@ -11,5 +11,5 @@ public interface GameService {
     Game createGame(Player player);
     Game connectToGame(Player player2, String gameId) throws InvalidParamException, InvalidGameException;
     Game gamePlay(GamePlay gamePlay) throws NotFoundException, InvalidGameException;
-
+    Game connectToRandomGame(Player player2) throws NotFoundException;
 }
