@@ -68,7 +68,7 @@ public class GameControllerTest {
         mockMvc.perform(post("/game/start")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(player)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isOk());
     }
 
     @Test

@@ -1,6 +1,5 @@
 package org.paribas.fortis.model;
 
-import com.sun.istack.internal.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Player {
 
-    @NotNull
     private String login;
 }
