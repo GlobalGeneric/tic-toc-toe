@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -47,6 +48,9 @@ public class GameControllerTest {
 
     @MockBean
     GameRepository gameRepository;
+
+    @MockBean
+    SimpMessagingTemplate SimpMessagingTemplate;
 
     @Test
     void post_palyer_object_should_return_Status_OK() throws Exception {
